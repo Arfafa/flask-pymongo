@@ -27,7 +27,7 @@ $ python -m pip install -r requirements.txt
 Após a instalação, o servidor pode ser inicializado com o comando:
 
 ```bash
-$ python entry_point.py
+$ python app.py
 ```
 
 **OBS**: Você precisa ter o MongoDB instalado e rodando para o servidor 
