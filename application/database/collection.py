@@ -1,4 +1,3 @@
-import random
 from bson.objectid import ObjectId
 
 
@@ -21,10 +20,6 @@ class Collection:
         return documents
 
     def inserir_solicitacao(self, document):
-        credito = self._verificar_credito(document['renda'])
-
-        document['credito'] = credito
-
         self.collection.insert_one(document)
 
         document = self.collection.find_one(document)
@@ -48,23 +43,3 @@ class Collection:
             document = {'msg': msg}
 
         return document
-
-    def _verificar_credito(self, renda):
-        aux = random.randint(1, 999)
-
-        if aux < 300:
-            credito = 0
-
-        elif aux < 600:
-            credito = 1000
-
-        elif aux < 800:
-            credito = max(1000, renda/2)
-
-        elif aux < 951:
-            credito = 2*renda
-
-        else:
-            credito = 1000000
-
-        return credito
